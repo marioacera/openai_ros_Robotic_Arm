@@ -1,0 +1,27 @@
+<launch>
+
+    <arg name="robot" default="moveo"/>
+    <arg name="debug" default="false"/>
+    <arg name="gui" default="false"/>
+    <arg name="headless" default="false"/>
+    <arg name="pause" default="true"/>
+    <arg name="world_name" default=""/>
+    <arg name="x" default="0.0" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="0.4" />
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0.0" />
+
+
+    <!-- Start Gazebo with a blank world -->
+
+    <!-- Oh, you wanted a robot? -->
+    <include file="$(find my_moveo_description)/launch/include/$(arg robot).launch" >
+        <arg name="x" value="$(arg x)" />
+        <arg name="y" value="$(arg y)" />
+        <arg name="z" value="$(arg z)" />
+        <arg name="yaw" value="$(arg yaw)" />
+    </include>
+
+</launch>

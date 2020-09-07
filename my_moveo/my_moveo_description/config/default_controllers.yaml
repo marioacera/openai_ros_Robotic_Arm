@@ -1,0 +1,23 @@
+moveo:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+  
+  # Position Controllers ---------------------------------------
+  head_pan_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_1
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  head_tilt_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_2
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  torso_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_3
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_shoulder_forward_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Joint_4
+    pid: {p: 100.0, i: 0.01, d: 10.0}

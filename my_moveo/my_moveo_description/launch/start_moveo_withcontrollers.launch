@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch"> </include>
+
+    <include file="$(find my_moveo_description)/launch/spawn_moveo_controllers.launch"/>
+    <include file="$(find my_moveo_description)/launch/moveo_joint_control.launch"/>
+</launch>

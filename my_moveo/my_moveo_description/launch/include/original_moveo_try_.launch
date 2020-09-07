@@ -1,0 +1,29 @@
+<launch>
+
+    <arg name="x" default="0.0" />
+    <arg name="y" default="0.0" />
+    <arg name="z" default="0.3" />
+    <arg name="roll" default="0"/>
+    <arg name="pitch" default="0"/>
+    <arg name="yaw" default="0.0" />
+
+    <!-- Setup controllers -->
+    <rosparam file="$(find my_moveo_description)/config/moveo_controllers.yaml" command="load" ns="/moveo" />
+
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+      output="screen" ns="/moveo" args="head_pan_joint_position_controller
+              head_tilt_joint_position_controller
+              torso_joint_position_controller
+              left_shoulder_forward_joint_position_controller"/>
+    <!-- URDF and TF support -->
+    <param name="robot_description" command="$(find xacro)/xacro.py $(find my_moveo_description)/urdf/moveo.gazebo.xacro" />
+        <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" >
+        <param name="publish_frequency" value="100.0"/>
+    </node>
+
+    <!-- Put a robot in gazebo, make it look pretty -->
+    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+        args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model moveo -param robot_description"/>
+
+
+</launch>

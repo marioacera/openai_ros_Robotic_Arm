@@ -1,0 +1,6 @@
+controller_list:
+  - name: moveo/joint_trajectory_controller
+    action_ns: "follow_joint_trajectory"
+    type: FollowJointTrajectory
+    joints: [Joint_1, Joint_2, Joint_3, Joint_4]
+
