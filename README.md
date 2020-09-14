@@ -7,4 +7,4 @@ In this repository we provide the environment that serves as interface for ROS a
 Currently non of the basalines algorithm are working with this setup.
 
 # Moveo Robot in Gazebo
-We also provide a functional Gazebo model for the Moveo Robot but with no end-effector that, that should be adapted and remodeled. The Gazebo model also has it associated Moveit package and the controllers interface is properly built, so the simulated model can be controlled through the Moveit API. Having a functional robot model is the foundation for using Openai-ROS package.
+We also provide a functional Gazebo model for the Moveo Robot but with no end-effector that should be adapted and remodeled. The Gazebo model also has it associated Moveit package and the controllers interface is properly built, so the simulated model can be controlled through the Moveit API. Having a functional robot model is the foundation for using Openai-ROS package.
